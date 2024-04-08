@@ -6,21 +6,18 @@ public class EvalListener extends Java8BaseListener {
     private Map<ParseTree, Integer> values = new HashMap<>();
     private ParseTree lastExpression;
 
-    // método chamado quando a regra de atribuição é encontrada
     @Override
-    public void exitAssignment(Java8Parser.AssignmentContext ctx) { // ctx é o contexto da regra de atribuição
+    public void exitAssignment(Java8Parser.AssignmentContext ctx) { 
         String id = ctx.variable().getText();
         int value = getValue(ctx.expression());
         variables.put(id, value);
-        lastExpression = ctx.expression(); // guarda a última expressão avaliada
+        lastExpression = ctx.expression(); 
     }
 
-    // método chamado quando a regra de expressão é encontrada
+    
     @Override
     public void exitExpression(Java8Parser.ExpressionContext ctx) {
-        // avalia a expressão
         int left = getValue(ctx.term(0));
-        // itera sobre os termos da expressão
         for (int i = 1; i < ctx.term().size(); i++) {
             int right = getValue(ctx.term(i));
             String op = ctx.getChild(i * 2 - 1).getText();
@@ -39,10 +36,9 @@ public class EvalListener extends Java8BaseListener {
                     break;
             }
         }
-        values.put(ctx, left); // guarda o valor da expressão no HashMap
+        values.put(ctx, left); 
     }
 
-    // método chamado quando a regra de termo é encontrada
     @Override
     public void exitTerm(Java8Parser.TermContext ctx) {
         int value = getValue(ctx.factor(0));
@@ -53,36 +49,30 @@ public class EvalListener extends Java8BaseListener {
                 value /= getValue(ctx.factor(i));
             }
         }
-        values.put(ctx, value); // guarda o valor do termo no HashMap
+        values.put(ctx, value); 
     }
 
-    // método chamado quando a regra de fator é encontrada
     @Override
     public void exitFactor(Java8Parser.FactorContext ctx) {
         int value;
-        // verifica se o fator é uma expressão, um número ou uma variável
         if (ctx.expression() != null) {
             value = getValue(ctx.expression());
         } else if (ctx.NUMBER() != null) {
             value = Integer.parseInt(ctx.NUMBER().getText());
         } else {
             String varName = ctx.variable().getText();
-            // verifica se a variável foi definida
             if (variables.containsKey(varName)) {
                 value = variables.get(varName);
             } else {
-                System.out.println("Erro: Variável " + varName + " não foi definida."); // imprime um erro se a
-                                                                                        // variável não foi definida
+                System.out.println("Erro: Variável " + varName + " não foi definida."); 
                 System.exit(1);
                 return;
             }
         }
-        values.put(ctx, value); // guarda o valor do fator no HashMap
+        values.put(ctx, value);
     }
 
-    // método para obter o valor de uma expressão
     public int getValue(ParseTree node) {
-        // verifica se o valor da expressão foi guardado no HashMap
         if (values.containsKey(node)) {
             return values.get(node);
         } else {
@@ -90,7 +80,6 @@ public class EvalListener extends Java8BaseListener {
         }
     }
 
-    // método para obter a última expressão avaliada
     public ParseTree getLastExpression() {
         return lastExpression;
     }
