@@ -3,18 +3,18 @@ grammar Galirardo;
 ATR: 'ATRIBUICOES';
 COD: 'CODIGO';
 
-TIPO: 'inteiro' | 'booleano' | 'caractere' | 'string';
+TIPO: 'inteiro' | 'booleano' | 'caractere' | 'string' | 'real';
 INPUT: 'in';
 OUTPUT: 'out';
 IF: 'caso';
 ELSE: 'outro';
 WHILE: 'repita';
 DO: 'executa';
-RETURN: 'devolve';
+RETURN: 'receba';
 OR: 'ou';
 AND: 'e';
 
-OP_ARIT: '+' | '-' | '*' | '/';
+OP_ARIT: '+' | '-' | '*' | '/' | '%';
 OP_COND: '>' | '<' | '==' | '!=';
 OP_ATR: ':=';
 

@@ -6,7 +6,7 @@ import org.antlr.v4.runtime.Token;
 
 public class ExemploLexer {
     public static void main(String[] args) {
-        String filename = "C:\\Users\\silve\\OneDrive\\Documentos\\GitHub\\Compiladores\\Trabalho\\Trabalho\\codigo.txt";
+        String filename = "Compiladores\\Trabalho\\Trabalho\\codigo.txt";
 
         try {
             CharStream input = CharStreams.fromFileName(filename);
