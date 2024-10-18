@@ -1,18 +1,47 @@
 inteiro fatorial(inteiro n) {
+     CODIGO:
     caso |n <= 1| executa & {
         devolve 1;
     }
     outro {
         devolve n * fatorial(n - 1);
      }
+:
 }
 
 inteiro principal() {
-    ATRIBUICOES:
+    ATRIBUICOES<
     inteiro notaprovamaurio := 15
+    >
     CODIGO:
     inteiro resultado;
     inteiro num := 5;
     resultado := fatorial(num);
     out resultado;
+:
+}
+
+inteiro fibonacci(inteiro n) {
+    ATRIBUICOES<
+    inteiro a := 0;
+    inteiro b := 1;
+    inteiro soma := 0;
+    >
+    CODIGO:
+    se (n == 0) {
+        receba a;
+    }
+
+    se (n == 1) {
+        receba b;
+    }
+
+    repita (n > 1) {
+        soma := a + b;
+        a := b;
+        b := soma;
+        n := n - 1;
+    }
+    receba soma;
+:
 }
