@@ -1,6 +1,5 @@
-// ATRIBUICOES
-inteiro fatorial(inteiro n) COD {
-    caso |n <= 1| executa {
+inteiro fatorial(inteiro n) {
+    caso |n <= 1| executa & {
         devolve 1;
     }
     outro {
@@ -8,10 +7,12 @@ inteiro fatorial(inteiro n) COD {
      }
 }
 
-inteiro principal() COD {
+inteiro principal() {
+    ATRIBUICOES:
+    inteiro notaprovamaurio := 15
+    CODIGO:
     inteiro resultado;
     inteiro num := 5;
     resultado := fatorial(num);
     out resultado;
 }
-

@@ -13,9 +13,10 @@ DO: 'executa';
 RETURN: 'receba';
 OR: 'ou';
 AND: 'e';
+VAZIO: 'void';
 
 OP_ARIT: '+' | '-' | '*' | '/' | '%';
-OP_COND: '>' | '<' | '==' | '!=';
+OP_COND: '>' | '<' | '==' | '!=' | '<=' | '>=';
 OP_ATR: ':=';
 
 COL: ';';
