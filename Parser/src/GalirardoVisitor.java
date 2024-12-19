@@ -1,4 +1,4 @@
-// Generated from /Users/bernardo_bertante/Programming/UFLA-5Periodo/Compiladores/AtividadeParser/Parser/src/Galirardo.g4 by ANTLR 4.13.1
+// Generated from Galirardo.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -82,6 +82,18 @@ public interface GalirardoVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitForLoopStatement(GalirardoParser.ForLoopStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link GalirardoParser#forControl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForControl(GalirardoParser.ForControlContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GalirardoParser#forInit}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForInit(GalirardoParser.ForInitContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link GalirardoParser#ifStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -106,17 +118,41 @@ public interface GalirardoVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpression(GalirardoParser.ExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link GalirardoParser#term}.
+	 * Visit a parse tree produced by {@link GalirardoParser#assignmentExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTerm(GalirardoParser.TermContext ctx);
+	T visitAssignmentExpression(GalirardoParser.AssignmentExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GalirardoParser#relationalExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelationalExpression(GalirardoParser.RelationalExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GalirardoParser#additiveExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAdditiveExpression(GalirardoParser.AdditiveExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GalirardoParser#multiplicativeExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiplicativeExpression(GalirardoParser.MultiplicativeExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GalirardoParser#factor}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitFactor(GalirardoParser.FactorContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link GalirardoParser#functionCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCall(GalirardoParser.FunctionCallContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GalirardoParser#outStatement}.
 	 * @param ctx the parse tree

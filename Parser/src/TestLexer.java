@@ -63,7 +63,6 @@ public class TestLexer {
         // Inicializa o lexer com o fluxo de entrada.
         GalirardoLexer lexer = new GalirardoLexer(input);
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-
         // Inicializa o parser com o fluxo de tokens.
         GalirardoParser parser = new GalirardoParser(tokenStream);
 

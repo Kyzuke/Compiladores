@@ -1,73 +1,184 @@
 grammar Galirardo;
 
-program: statement+;  // O programa é uma sequência de declarações.
+program
+    : statement+ ;
 
-statement: variableDeclaration
-         | assignment
-         | inputStatement
-         | functionDeclaration
-         | loopStatement
-         | forLoopStatement
-         | ifStatement
-         | expression
-         | responseStatement
-         | outStatement;
+// Regras do Parser
+statement
+    : variableDeclaration
+    | assignment
+    | inputStatement
+    | functionDeclaration
+    | loopStatement
+    | forLoopStatement
+    | ifStatement
+    | expression SEMI
+    | responseStatement
+    | outStatement
+    ;
 
-variableDeclaration: (dataType | 'const' dataType) variable ('=' expression)? ';';  // Declaração de variáveis, incluindo constantes.
+variableDeclaration
+    : (dataType | 'const' dataType) variable ('=' expression)? SEMI
+    ;
 
-dataType: 'int' | 'float' | 'boolean' | 'string';  // Tipos de dados suportados.
+dataType
+    : INT_KW
+    | FLOAT_KW
+    | BOOLEAN_KW
+    | STRING_KW
+    ;
 
-assignment: variable '=' expression ';';  // Atribuição padrão.
+assignment
+    : variable '=' expression SEMI
+    ;
 
-inputStatement: 'in' variable ';';  // Entrada de dados (similar ao 'cin' no C++).
+inputStatement
+    : IN variable SEMI
+    ;
 
-functionDeclaration: dataType functionName '(' parameters? ')' block;  // Declaração de função com tipos de retorno.
+functionDeclaration
+    : dataType functionName '(' parameters? ')' block
+    ;
 
-parameters: parameter (',' parameter)*;
+parameters
+    : parameter (',' parameter)*
+    ;
 
-parameter: dataType variable;  // Tipo e nome do parâmetro.
+parameter
+    : dataType variable
+    ;
 
-block: '{' statement* '}';  // Bloco de código entre chaves.
+block
+    : '{' statement* '}'
+    ;
 
-loopStatement: 'loop' '(' expression ')' block;  // Declaração de loop (while).
+loopStatement
+    : LOOP '(' expression ')' block
+    ;
 
-forLoopStatement: 'forloop' '(' assignment ';' expression ';' assignment ')' block;  // Declaração de for loop.
+// Ajuste no forLoopStatement
+forLoopStatement
+    : FORLOOP '(' forControl ')' block
+    ;
 
-ifStatement: 'if' '|' condition '|' block ('else' block)?;  // Estrutura condicional com else opcional.
+forControl
+    : forInit? SEMI expression? SEMI expression?
+    ;
 
-condition: expression ('==' | '!=' | '<' | '>' | '<=' | '>=') expression
-         | booleanExpression;  // Condições aritméticas e booleanas.
+forInit
+    : (dataType variable ('=' expression)?)
+    | expression
+    ;
 
-booleanExpression: expression ('&&' | '||') expression  // Expressões booleanas (AND, OR).
-                 | 'true'
-                 | 'false';
+ifStatement
+    : IF BAR condition BAR block (ELSE block)?
+    ;
 
-expression: term (('+' | '-' | '*' | '/' | '%') term)*;  // Expressões aritméticas e mod.
+condition
+    : expression (EQ | NEQ | LT | GT | LTE | GTE) expression
+    | booleanExpression
+    ;
 
-term: factor;
+booleanExpression
+    : expression (AND | OR) expression
+    | TRUE
+    | FALSE
+    ;
 
-factor: '(' expression ')' 
-      | NUMBER 
-      | FLOAT
-      | STRING 
-      | variable;
+// Agora expression inclui assignmentExpression
+expression
+    : assignmentExpression
+    ;
 
-outStatement: 'out' '(' expression ')' ';';  // Declaração de saída para 'out', agora aceitando expressões.
+assignmentExpression
+    : variable '=' assignmentExpression
+    | relationalExpression
+    ;
 
-responseStatement: 'response' expression ';';  // Declaração de resposta (aceita números e variáveis).
+relationalExpression
+    : additiveExpression ( (LT | GT | LTE | GTE | EQ | NEQ) additiveExpression )?
+    ;
 
-variable: LETTER+;  // Nome de variável.
+additiveExpression
+    : multiplicativeExpression (('+' | '-') multiplicativeExpression)*
+    ;
 
-functionName: LETTER+;  // Nome de função.
+multiplicativeExpression
+    : factor (('*' | '/' | '%') factor)*
+    ;
 
-STRING: '"' (~["])* '"';  // Cadeia de caracteres (string).
+factor
+    : '(' expression ')'
+    | NUMBER
+    | FLOAT
+    | STRING
+    | variable
+    | functionCall
+    ;
 
-NUMBER: DIGIT+;  // Números inteiros.
+functionCall
+    : functionName '(' (expression (',' expression)*)? ')'
+    ;
 
-FLOAT: DIGIT+ '.' DIGIT+;  // Números de ponto flutuante.
+outStatement
+    : OUT '(' expression ')' SEMI
+    ;
 
-LETTER: [a-zA-Z];  // Letras para nomes de variáveis e funções.
+responseStatement
+    : RESPONSE expression SEMI
+    ;
 
-DIGIT: [0-9];  // Dígitos para números.
+variable
+    : ID
+    ;
 
-WS: [ \t\r\n]+ -> skip;  // Ignora espaços em branco.
+functionName
+    : ID
+    ;
+
+// ------------------ Regras Léxicas ------------------
+
+IF: 'if';
+ELSE: 'else';
+LOOP: 'loop';
+FORLOOP: 'forloop';
+RESPONSE: 'response';
+OUT: 'out';
+IN: 'in';
+
+INT_KW: 'int';
+FLOAT_KW: 'float';
+BOOLEAN_KW: 'boolean';
+STRING_KW: 'string';
+
+TRUE: 'true';
+FALSE: 'false';
+
+EQ: '==';
+NEQ: '!=';
+LT: '<';
+GT: '>';
+LTE: '<=';
+GTE: '>=';
+
+AND: '&&';
+OR: '||';
+
+ID: [a-zA-Z]+;
+
+STRING: '"' (~["])* '"';
+NUMBER: DIGIT+;
+FLOAT: DIGIT+ '.' DIGIT+;
+
+LPAREN: '(';
+RPAREN: ')';
+LBRACE: '{';
+RBRACE: '}';
+SEMI: ';';
+COMMA: ',';
+BAR: '|';
+ASSIGN: '=';
+
+fragment DIGIT: [0-9];
+
+WS: [ \t\r\n]+ -> skip;
