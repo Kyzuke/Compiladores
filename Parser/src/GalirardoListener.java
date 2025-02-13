@@ -27,15 +27,17 @@ public interface GalirardoListener extends ParseTreeListener {
 	 */
 	void exitStatement(GalirardoParser.StatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#variableDeclaration}.
+	 * Enter a parse tree produced by the {@code NvariableDeclaration}
+	 * labeled alternative in {@link GalirardoParser#variableDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterVariableDeclaration(GalirardoParser.VariableDeclarationContext ctx);
+	void enterNvariableDeclaration(GalirardoParser.NvariableDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#variableDeclaration}.
+	 * Exit a parse tree produced by the {@code NvariableDeclaration}
+	 * labeled alternative in {@link GalirardoParser#variableDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitVariableDeclaration(GalirardoParser.VariableDeclarationContext ctx);
+	void exitNvariableDeclaration(GalirardoParser.NvariableDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GalirardoParser#dataType}.
 	 * @param ctx the parse tree
@@ -47,35 +49,41 @@ public interface GalirardoListener extends ParseTreeListener {
 	 */
 	void exitDataType(GalirardoParser.DataTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#assignment}.
+	 * Enter a parse tree produced by the {@code Nassignment}
+	 * labeled alternative in {@link GalirardoParser#assignment}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssignment(GalirardoParser.AssignmentContext ctx);
+	void enterNassignment(GalirardoParser.NassignmentContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#assignment}.
+	 * Exit a parse tree produced by the {@code Nassignment}
+	 * labeled alternative in {@link GalirardoParser#assignment}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssignment(GalirardoParser.AssignmentContext ctx);
+	void exitNassignment(GalirardoParser.NassignmentContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#inputStatement}.
+	 * Enter a parse tree produced by the {@code NinputStatement}
+	 * labeled alternative in {@link GalirardoParser#inputStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterInputStatement(GalirardoParser.InputStatementContext ctx);
+	void enterNinputStatement(GalirardoParser.NinputStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#inputStatement}.
+	 * Exit a parse tree produced by the {@code NinputStatement}
+	 * labeled alternative in {@link GalirardoParser#inputStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitInputStatement(GalirardoParser.InputStatementContext ctx);
+	void exitNinputStatement(GalirardoParser.NinputStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#functionDeclaration}.
+	 * Enter a parse tree produced by the {@code NfunctionDeclaration}
+	 * labeled alternative in {@link GalirardoParser#functionDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionDeclaration(GalirardoParser.FunctionDeclarationContext ctx);
+	void enterNfunctionDeclaration(GalirardoParser.NfunctionDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#functionDeclaration}.
+	 * Exit a parse tree produced by the {@code NfunctionDeclaration}
+	 * labeled alternative in {@link GalirardoParser#functionDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionDeclaration(GalirardoParser.FunctionDeclarationContext ctx);
+	void exitNfunctionDeclaration(GalirardoParser.NfunctionDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GalirardoParser#parameters}.
 	 * @param ctx the parse tree
@@ -87,45 +95,53 @@ public interface GalirardoListener extends ParseTreeListener {
 	 */
 	void exitParameters(GalirardoParser.ParametersContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#parameter}.
+	 * Enter a parse tree produced by the {@code Nparameter}
+	 * labeled alternative in {@link GalirardoParser#parameter}.
 	 * @param ctx the parse tree
 	 */
-	void enterParameter(GalirardoParser.ParameterContext ctx);
+	void enterNparameter(GalirardoParser.NparameterContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#parameter}.
+	 * Exit a parse tree produced by the {@code Nparameter}
+	 * labeled alternative in {@link GalirardoParser#parameter}.
 	 * @param ctx the parse tree
 	 */
-	void exitParameter(GalirardoParser.ParameterContext ctx);
+	void exitNparameter(GalirardoParser.NparameterContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#block}.
+	 * Enter a parse tree produced by the {@code Nblock}
+	 * labeled alternative in {@link GalirardoParser#block}.
 	 * @param ctx the parse tree
 	 */
-	void enterBlock(GalirardoParser.BlockContext ctx);
+	void enterNblock(GalirardoParser.NblockContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#block}.
+	 * Exit a parse tree produced by the {@code Nblock}
+	 * labeled alternative in {@link GalirardoParser#block}.
 	 * @param ctx the parse tree
 	 */
-	void exitBlock(GalirardoParser.BlockContext ctx);
+	void exitNblock(GalirardoParser.NblockContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#loopStatement}.
+	 * Enter a parse tree produced by the {@code NloopStatement}
+	 * labeled alternative in {@link GalirardoParser#loopStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterLoopStatement(GalirardoParser.LoopStatementContext ctx);
+	void enterNloopStatement(GalirardoParser.NloopStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#loopStatement}.
+	 * Exit a parse tree produced by the {@code NloopStatement}
+	 * labeled alternative in {@link GalirardoParser#loopStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitLoopStatement(GalirardoParser.LoopStatementContext ctx);
+	void exitNloopStatement(GalirardoParser.NloopStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#forLoopStatement}.
+	 * Enter a parse tree produced by the {@code NforLoopStatement}
+	 * labeled alternative in {@link GalirardoParser#forLoopStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterForLoopStatement(GalirardoParser.ForLoopStatementContext ctx);
+	void enterNforLoopStatement(GalirardoParser.NforLoopStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#forLoopStatement}.
+	 * Exit a parse tree produced by the {@code NforLoopStatement}
+	 * labeled alternative in {@link GalirardoParser#forLoopStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitForLoopStatement(GalirardoParser.ForLoopStatementContext ctx);
+	void exitNforLoopStatement(GalirardoParser.NforLoopStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GalirardoParser#forControl}.
 	 * @param ctx the parse tree
@@ -147,15 +163,17 @@ public interface GalirardoListener extends ParseTreeListener {
 	 */
 	void exitForInit(GalirardoParser.ForInitContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#ifStatement}.
+	 * Enter a parse tree produced by the {@code NifStatement}
+	 * labeled alternative in {@link GalirardoParser#ifStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterIfStatement(GalirardoParser.IfStatementContext ctx);
+	void enterNifStatement(GalirardoParser.NifStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#ifStatement}.
+	 * Exit a parse tree produced by the {@code NifStatement}
+	 * labeled alternative in {@link GalirardoParser#ifStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitIfStatement(GalirardoParser.IfStatementContext ctx);
+	void exitNifStatement(GalirardoParser.NifStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GalirardoParser#condition}.
 	 * @param ctx the parse tree
@@ -237,15 +255,17 @@ public interface GalirardoListener extends ParseTreeListener {
 	 */
 	void exitFactor(GalirardoParser.FactorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#functionCall}.
+	 * Enter a parse tree produced by the {@code NfunctionCall}
+	 * labeled alternative in {@link GalirardoParser#functionCall}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionCall(GalirardoParser.FunctionCallContext ctx);
+	void enterNfunctionCall(GalirardoParser.NfunctionCallContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#functionCall}.
+	 * Exit a parse tree produced by the {@code NfunctionCall}
+	 * labeled alternative in {@link GalirardoParser#functionCall}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionCall(GalirardoParser.FunctionCallContext ctx);
+	void exitNfunctionCall(GalirardoParser.NfunctionCallContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GalirardoParser#outStatement}.
 	 * @param ctx the parse tree
@@ -267,15 +287,17 @@ public interface GalirardoListener extends ParseTreeListener {
 	 */
 	void exitResponseStatement(GalirardoParser.ResponseStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link GalirardoParser#variable}.
+	 * Enter a parse tree produced by the {@code Nvariable}
+	 * labeled alternative in {@link GalirardoParser#variable}.
 	 * @param ctx the parse tree
 	 */
-	void enterVariable(GalirardoParser.VariableContext ctx);
+	void enterNvariable(GalirardoParser.NvariableContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link GalirardoParser#variable}.
+	 * Exit a parse tree produced by the {@code Nvariable}
+	 * labeled alternative in {@link GalirardoParser#variable}.
 	 * @param ctx the parse tree
 	 */
-	void exitVariable(GalirardoParser.VariableContext ctx);
+	void exitNvariable(GalirardoParser.NvariableContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link GalirardoParser#functionName}.
 	 * @param ctx the parse tree

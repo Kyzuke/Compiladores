@@ -19,7 +19,7 @@ statement
 
 variableDeclaration
     : (dataType | 'const' dataType) variable ('=' expression)? SEMI
-    ;
+    #NvariableDeclaration;
 
 dataType
     : INT_KW
@@ -30,15 +30,15 @@ dataType
 
 assignment
     : variable '=' expression SEMI
-    ;
+    #Nassignment;
 
 inputStatement
     : IN variable SEMI
-    ;
+    #NinputStatement;
 
 functionDeclaration
     : dataType functionName '(' parameters? ')' block
-    ;
+    #NfunctionDeclaration;
 
 parameters
     : parameter (',' parameter)*
@@ -46,20 +46,20 @@ parameters
 
 parameter
     : dataType variable
-    ;
+    #Nparameter;
 
 block
     : '{' statement* '}'
-    ;
+    #Nblock;
 
 loopStatement
     : LOOP '(' expression ')' block
-    ;
+    #NloopStatement;
 
 // Ajuste no forLoopStatement
 forLoopStatement
     : FORLOOP '(' forControl ')' block
-    ;
+    #NforLoopStatement;
 
 forControl
     : forInit? SEMI expression? SEMI expression?
@@ -72,7 +72,7 @@ forInit
 
 ifStatement
     : IF BAR condition BAR block (ELSE block)?
-    ;
+    #NifStatement;
 
 condition
     : expression (EQ | NEQ | LT | GT | LTE | GTE) expression
@@ -118,7 +118,7 @@ factor
 
 functionCall
     : functionName '(' (expression (',' expression)*)? ')'
-    ;
+    #NfunctionCall;
 
 outStatement
     : OUT '(' expression ')' SEMI
@@ -130,7 +130,7 @@ responseStatement
 
 variable
     : ID
-    ;
+    #Nvariable;
 
 functionName
     : ID

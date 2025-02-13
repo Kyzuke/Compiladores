@@ -312,6 +312,18 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class VariableDeclarationContext extends ParserRuleContext {
+		public VariableDeclarationContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_variableDeclaration; }
+	 
+		public VariableDeclarationContext() { }
+		public void copyFrom(VariableDeclarationContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NvariableDeclarationContext extends VariableDeclarationContext {
 		public VariableContext variable() {
 			return getRuleContext(VariableContext.class,0);
 		}
@@ -323,17 +335,14 @@ public class GalirardoParser extends Parser {
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public VariableDeclarationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_variableDeclaration; }
+		public NvariableDeclarationContext(VariableDeclarationContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterVariableDeclaration(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNvariableDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitVariableDeclaration(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNvariableDeclaration(this);
 		}
 	}
 
@@ -342,6 +351,7 @@ public class GalirardoParser extends Parser {
 		enterRule(_localctx, 4, RULE_variableDeclaration);
 		int _la;
 		try {
+			_localctx = new NvariableDeclarationContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(78);
@@ -448,6 +458,18 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class AssignmentContext extends ParserRuleContext {
+		public AssignmentContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_assignment; }
+	 
+		public AssignmentContext() { }
+		public void copyFrom(AssignmentContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NassignmentContext extends AssignmentContext {
 		public VariableContext variable() {
 			return getRuleContext(VariableContext.class,0);
 		}
@@ -456,17 +478,14 @@ public class GalirardoParser extends Parser {
 			return getRuleContext(ExpressionContext.class,0);
 		}
 		public TerminalNode SEMI() { return getToken(GalirardoParser.SEMI, 0); }
-		public AssignmentContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_assignment; }
+		public NassignmentContext(AssignmentContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterAssignment(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNassignment(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitAssignment(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNassignment(this);
 		}
 	}
 
@@ -474,6 +493,7 @@ public class GalirardoParser extends Parser {
 		AssignmentContext _localctx = new AssignmentContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_assignment);
 		try {
+			_localctx = new NassignmentContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(89);
@@ -499,22 +519,31 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class InputStatementContext extends ParserRuleContext {
+		public InputStatementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_inputStatement; }
+	 
+		public InputStatementContext() { }
+		public void copyFrom(InputStatementContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NinputStatementContext extends InputStatementContext {
 		public TerminalNode IN() { return getToken(GalirardoParser.IN, 0); }
 		public VariableContext variable() {
 			return getRuleContext(VariableContext.class,0);
 		}
 		public TerminalNode SEMI() { return getToken(GalirardoParser.SEMI, 0); }
-		public InputStatementContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_inputStatement; }
+		public NinputStatementContext(InputStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterInputStatement(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNinputStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitInputStatement(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNinputStatement(this);
 		}
 	}
 
@@ -522,6 +551,7 @@ public class GalirardoParser extends Parser {
 		InputStatementContext _localctx = new InputStatementContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_inputStatement);
 		try {
+			_localctx = new NinputStatementContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(94);
@@ -545,6 +575,18 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class FunctionDeclarationContext extends ParserRuleContext {
+		public FunctionDeclarationContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_functionDeclaration; }
+	 
+		public FunctionDeclarationContext() { }
+		public void copyFrom(FunctionDeclarationContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NfunctionDeclarationContext extends FunctionDeclarationContext {
 		public DataTypeContext dataType() {
 			return getRuleContext(DataTypeContext.class,0);
 		}
@@ -559,17 +601,14 @@ public class GalirardoParser extends Parser {
 		public ParametersContext parameters() {
 			return getRuleContext(ParametersContext.class,0);
 		}
-		public FunctionDeclarationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_functionDeclaration; }
+		public NfunctionDeclarationContext(FunctionDeclarationContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterFunctionDeclaration(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNfunctionDeclaration(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitFunctionDeclaration(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNfunctionDeclaration(this);
 		}
 	}
 
@@ -578,6 +617,7 @@ public class GalirardoParser extends Parser {
 		enterRule(_localctx, 12, RULE_functionDeclaration);
 		int _la;
 		try {
+			_localctx = new NfunctionDeclarationContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(98);
@@ -679,23 +719,32 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ParameterContext extends ParserRuleContext {
+		public ParameterContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_parameter; }
+	 
+		public ParameterContext() { }
+		public void copyFrom(ParameterContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NparameterContext extends ParameterContext {
 		public DataTypeContext dataType() {
 			return getRuleContext(DataTypeContext.class,0);
 		}
 		public VariableContext variable() {
 			return getRuleContext(VariableContext.class,0);
 		}
-		public ParameterContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_parameter; }
+		public NparameterContext(ParameterContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterParameter(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNparameter(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitParameter(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNparameter(this);
 		}
 	}
 
@@ -703,6 +752,7 @@ public class GalirardoParser extends Parser {
 		ParameterContext _localctx = new ParameterContext(_ctx, getState());
 		enterRule(_localctx, 16, RULE_parameter);
 		try {
+			_localctx = new NparameterContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(115);
@@ -724,6 +774,18 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class BlockContext extends ParserRuleContext {
+		public BlockContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_block; }
+	 
+		public BlockContext() { }
+		public void copyFrom(BlockContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NblockContext extends BlockContext {
 		public TerminalNode LBRACE() { return getToken(GalirardoParser.LBRACE, 0); }
 		public TerminalNode RBRACE() { return getToken(GalirardoParser.RBRACE, 0); }
 		public List<StatementContext> statement() {
@@ -732,17 +794,14 @@ public class GalirardoParser extends Parser {
 		public StatementContext statement(int i) {
 			return getRuleContext(StatementContext.class,i);
 		}
-		public BlockContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_block; }
+		public NblockContext(BlockContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterBlock(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNblock(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitBlock(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNblock(this);
 		}
 	}
 
@@ -751,6 +810,7 @@ public class GalirardoParser extends Parser {
 		enterRule(_localctx, 18, RULE_block);
 		int _la;
 		try {
+			_localctx = new NblockContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(118);
@@ -786,6 +846,18 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class LoopStatementContext extends ParserRuleContext {
+		public LoopStatementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_loopStatement; }
+	 
+		public LoopStatementContext() { }
+		public void copyFrom(LoopStatementContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NloopStatementContext extends LoopStatementContext {
 		public TerminalNode LOOP() { return getToken(GalirardoParser.LOOP, 0); }
 		public TerminalNode LPAREN() { return getToken(GalirardoParser.LPAREN, 0); }
 		public ExpressionContext expression() {
@@ -795,17 +867,14 @@ public class GalirardoParser extends Parser {
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
-		public LoopStatementContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_loopStatement; }
+		public NloopStatementContext(LoopStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterLoopStatement(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNloopStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitLoopStatement(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNloopStatement(this);
 		}
 	}
 
@@ -813,6 +882,7 @@ public class GalirardoParser extends Parser {
 		LoopStatementContext _localctx = new LoopStatementContext(_ctx, getState());
 		enterRule(_localctx, 20, RULE_loopStatement);
 		try {
+			_localctx = new NloopStatementContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(127);
@@ -840,6 +910,18 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ForLoopStatementContext extends ParserRuleContext {
+		public ForLoopStatementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_forLoopStatement; }
+	 
+		public ForLoopStatementContext() { }
+		public void copyFrom(ForLoopStatementContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NforLoopStatementContext extends ForLoopStatementContext {
 		public TerminalNode FORLOOP() { return getToken(GalirardoParser.FORLOOP, 0); }
 		public TerminalNode LPAREN() { return getToken(GalirardoParser.LPAREN, 0); }
 		public ForControlContext forControl() {
@@ -849,17 +931,14 @@ public class GalirardoParser extends Parser {
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
 		}
-		public ForLoopStatementContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_forLoopStatement; }
+		public NforLoopStatementContext(ForLoopStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterForLoopStatement(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNforLoopStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitForLoopStatement(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNforLoopStatement(this);
 		}
 	}
 
@@ -867,6 +946,7 @@ public class GalirardoParser extends Parser {
 		ForLoopStatementContext _localctx = new ForLoopStatementContext(_ctx, getState());
 		enterRule(_localctx, 22, RULE_forLoopStatement);
 		try {
+			_localctx = new NforLoopStatementContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(133);
@@ -1063,6 +1143,18 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class IfStatementContext extends ParserRuleContext {
+		public IfStatementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_ifStatement; }
+	 
+		public IfStatementContext() { }
+		public void copyFrom(IfStatementContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NifStatementContext extends IfStatementContext {
 		public TerminalNode IF() { return getToken(GalirardoParser.IF, 0); }
 		public List<TerminalNode> BAR() { return getTokens(GalirardoParser.BAR); }
 		public TerminalNode BAR(int i) {
@@ -1078,17 +1170,14 @@ public class GalirardoParser extends Parser {
 			return getRuleContext(BlockContext.class,i);
 		}
 		public TerminalNode ELSE() { return getToken(GalirardoParser.ELSE, 0); }
-		public IfStatementContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_ifStatement; }
+		public NifStatementContext(IfStatementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterIfStatement(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNifStatement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitIfStatement(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNifStatement(this);
 		}
 	}
 
@@ -1097,6 +1186,7 @@ public class GalirardoParser extends Parser {
 		enterRule(_localctx, 28, RULE_ifStatement);
 		int _la;
 		try {
+			_localctx = new NifStatementContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(159);
@@ -1706,6 +1796,18 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class FunctionCallContext extends ParserRuleContext {
+		public FunctionCallContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_functionCall; }
+	 
+		public FunctionCallContext() { }
+		public void copyFrom(FunctionCallContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NfunctionCallContext extends FunctionCallContext {
 		public FunctionNameContext functionName() {
 			return getRuleContext(FunctionNameContext.class,0);
 		}
@@ -1721,17 +1823,14 @@ public class GalirardoParser extends Parser {
 		public TerminalNode COMMA(int i) {
 			return getToken(GalirardoParser.COMMA, i);
 		}
-		public FunctionCallContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_functionCall; }
+		public NfunctionCallContext(FunctionCallContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterFunctionCall(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNfunctionCall(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitFunctionCall(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNfunctionCall(this);
 		}
 	}
 
@@ -1740,6 +1839,7 @@ public class GalirardoParser extends Parser {
 		enterRule(_localctx, 46, RULE_functionCall);
 		int _la;
 		try {
+			_localctx = new NfunctionCallContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(224);
@@ -1887,18 +1987,27 @@ public class GalirardoParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class VariableContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(GalirardoParser.ID, 0); }
 		public VariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variable; }
+	 
+		public VariableContext() { }
+		public void copyFrom(VariableContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	@SuppressWarnings("CheckReturnValue")
+	public static class NvariableContext extends VariableContext {
+		public TerminalNode ID() { return getToken(GalirardoParser.ID, 0); }
+		public NvariableContext(VariableContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterVariable(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).enterNvariable(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitVariable(this);
+			if ( listener instanceof GalirardoListener ) ((GalirardoListener)listener).exitNvariable(this);
 		}
 	}
 
@@ -1906,6 +2015,7 @@ public class GalirardoParser extends Parser {
 		VariableContext _localctx = new VariableContext(_ctx, getState());
 		enterRule(_localctx, 52, RULE_variable);
 		try {
+			_localctx = new NvariableContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(248);

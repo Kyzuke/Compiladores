@@ -40,13 +40,13 @@ public class GalirardoBaseListener implements GalirardoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariableDeclaration(GalirardoParser.VariableDeclarationContext ctx) { }
+	@Override public void enterNvariableDeclaration(GalirardoParser.NvariableDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariableDeclaration(GalirardoParser.VariableDeclarationContext ctx) { }
+	@Override public void exitNvariableDeclaration(GalirardoParser.NvariableDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -64,37 +64,37 @@ public class GalirardoBaseListener implements GalirardoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssignment(GalirardoParser.AssignmentContext ctx) { }
+	@Override public void enterNassignment(GalirardoParser.NassignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssignment(GalirardoParser.AssignmentContext ctx) { }
+	@Override public void exitNassignment(GalirardoParser.NassignmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInputStatement(GalirardoParser.InputStatementContext ctx) { }
+	@Override public void enterNinputStatement(GalirardoParser.NinputStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInputStatement(GalirardoParser.InputStatementContext ctx) { }
+	@Override public void exitNinputStatement(GalirardoParser.NinputStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionDeclaration(GalirardoParser.FunctionDeclarationContext ctx) { }
+	@Override public void enterNfunctionDeclaration(GalirardoParser.NfunctionDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionDeclaration(GalirardoParser.FunctionDeclarationContext ctx) { }
+	@Override public void exitNfunctionDeclaration(GalirardoParser.NfunctionDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -112,49 +112,49 @@ public class GalirardoBaseListener implements GalirardoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParameter(GalirardoParser.ParameterContext ctx) { }
+	@Override public void enterNparameter(GalirardoParser.NparameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParameter(GalirardoParser.ParameterContext ctx) { }
+	@Override public void exitNparameter(GalirardoParser.NparameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBlock(GalirardoParser.BlockContext ctx) { }
+	@Override public void enterNblock(GalirardoParser.NblockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBlock(GalirardoParser.BlockContext ctx) { }
+	@Override public void exitNblock(GalirardoParser.NblockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLoopStatement(GalirardoParser.LoopStatementContext ctx) { }
+	@Override public void enterNloopStatement(GalirardoParser.NloopStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLoopStatement(GalirardoParser.LoopStatementContext ctx) { }
+	@Override public void exitNloopStatement(GalirardoParser.NloopStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterForLoopStatement(GalirardoParser.ForLoopStatementContext ctx) { }
+	@Override public void enterNforLoopStatement(GalirardoParser.NforLoopStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitForLoopStatement(GalirardoParser.ForLoopStatementContext ctx) { }
+	@Override public void exitNforLoopStatement(GalirardoParser.NforLoopStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -184,13 +184,13 @@ public class GalirardoBaseListener implements GalirardoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfStatement(GalirardoParser.IfStatementContext ctx) { }
+	@Override public void enterNifStatement(GalirardoParser.NifStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIfStatement(GalirardoParser.IfStatementContext ctx) { }
+	@Override public void exitNifStatement(GalirardoParser.NifStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -292,13 +292,13 @@ public class GalirardoBaseListener implements GalirardoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionCall(GalirardoParser.FunctionCallContext ctx) { }
+	@Override public void enterNfunctionCall(GalirardoParser.NfunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionCall(GalirardoParser.FunctionCallContext ctx) { }
+	@Override public void exitNfunctionCall(GalirardoParser.NfunctionCallContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -328,13 +328,13 @@ public class GalirardoBaseListener implements GalirardoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariable(GalirardoParser.VariableContext ctx) { }
+	@Override public void enterNvariable(GalirardoParser.NvariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariable(GalirardoParser.VariableContext ctx) { }
+	@Override public void exitNvariable(GalirardoParser.NvariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
