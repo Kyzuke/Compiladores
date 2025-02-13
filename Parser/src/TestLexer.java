@@ -6,6 +6,7 @@ public class TestLexer {
         // Exemplo de código a ser testado.
         String codigoExemplo = """
             int Fatorial(int n) {
+                boolean abc = false;
                 int resultado = 1;
                 loop (n > 1) {
                     resultado = resultado * n;
@@ -33,19 +34,13 @@ public class TestLexer {
 
         testLexer(codigoExemplo);
         testParser(codigoExemplo);
+        testSemanticAnalysis(codigoExemplo);
     }
 
     private static void testLexer(String codigo) {
-        // Cria o fluxo de entrada a partir do código de exemplo.
         CharStream input = CharStreams.fromString(codigo);
-
-        // Inicializa o lexer com o fluxo de entrada.
         GalirardoLexer lexer = new GalirardoLexer(input);
-
-        // Cria um fluxo de tokens a partir do lexer.
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-
-        // Preenche o fluxo de tokens.
         tokenStream.fill();
 
         System.out.println("Tokens gerados:");
@@ -57,20 +52,31 @@ public class TestLexer {
     }
 
     private static void testParser(String codigo) {
-        // Cria o fluxo de entrada a partir do código de exemplo.
         CharStream input = CharStreams.fromString(codigo);
-
-        // Inicializa o lexer com o fluxo de entrada.
         GalirardoLexer lexer = new GalirardoLexer(input);
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-        // Inicializa o parser com o fluxo de tokens.
         GalirardoParser parser = new GalirardoParser(tokenStream);
 
-        // Inicia o processo de parsing a partir da regra inicial 'program'.
         ParseTree tree = parser.program();
 
-        // Imprime a árvore sintática.
         System.out.println("\nÁrvore sintática:");
         System.out.println(tree.toStringTree(parser));
+    }
+
+    private static void testSemanticAnalysis(String codigo) {
+        CharStream input = CharStreams.fromString(codigo);
+        GalirardoLexer lexer = new GalirardoLexer(input);
+        CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+        GalirardoParser parser = new GalirardoParser(tokenStream);
+
+        ParseTree tree = parser.program();
+        SemanticAnalyzer semanticAnalyzer = new SemanticAnalyzer();
+
+        try {
+            semanticAnalyzer.visit(tree);
+            System.out.println("\nAnálise semântica concluída sem erros.");
+        } catch (RuntimeException e) {
+            System.out.println("\nErro na análise semântica: " + e.getMessage());
+        }
     }
 }
