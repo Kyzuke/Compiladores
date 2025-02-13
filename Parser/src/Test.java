@@ -5,30 +5,16 @@ public class Test {
     public static void main(String[] args) throws Exception {
         // Exemplo de código a ser testado.
         String codigoExemplo = """
-            int Fatorial(int n) {
-                int resultado = 1;
-                loop (n > 1) {
-                    resultado = resultado * n;
-                    n = n - 1;
-                }
-                response resultado;
+            int x = 5;
+            int x = 10;
+            y = x + 1;
+            if | x < 10 | {
+                float z = "hello";
             }
-
-            int Fibonacci(int n) {
-                if | n <= 1 | {
-                    response n;
-                } else {
-                    response Fibonacci(n - 1) + Fibonacci(n - 2);
-                }
+            loop (x) {
+                int a = 1;
             }
-
-            int SomaFibonacci(int n) {
-                int soma = 0;
-                forloop (int i = 0; i <= n; i = i + 1) {
-                    soma = soma + Fibonacci(i);
-                }
-                response soma;
-            }
+            a = 2;
         """;
 
         testLexer(codigoExemplo);
